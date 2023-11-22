@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos."
+          name="description">
+    <meta content="Nerfies, D-NeRF, NeRF" name="keywords">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!--  网页标题-->
+    <title>GPT4Motion: Scripting Physical Motions in Text-to-Video Generation via
+        Blender-Oriented GPT Planning</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+
+      gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link href="./static/css/bulma.min.css" rel="stylesheet">
+    <link href="./static/css/bulma-carousel.min.css" rel="stylesheet">
+    <link href="./static/css/bulma-slider.min.css" rel="stylesheet">
+    <link href="./static/css/fontawesome.all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+          rel="stylesheet">
+    <link href="./static/css/index.css" rel="stylesheet">
+    <link href="./static/images/icons8-basketball-96.png" rel="icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Contact
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="mailto:lvjiaxi22@mails.ucas.ac.cn">
+                        GaaHey Leoi
+                    </a>
+                    <!--          <a class="navbar-item" href="https://nerfies.github.io">-->
+                    <!--            Nerfies-->
+                    <!--          </a>-->
+                    <!--          <a class="navbar-item" href="https://latentfusion.github.io">-->
+                    <!--            LatentFusion-->
+                    <!--          </a>-->
+                    <!--          <a class="navbar-item" href="https://photoshape.github.io">-->
+                    <!--            PhotoShape-->
+                    <!--          </a>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">🏀GPT4Motion: Scripting Physical Motions in Text-to-Video
+                        Generation via
+                        Blender-Oriented GPT Planning</h1>
+                    <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://keunhong.com">GaaHey Leoi</a><sup>1,2*</sup>,</span>
+                        <span class="author-block">
+              <a href="https://utkarshsinha.com">Yi Huang</a><sup>1,2*</sup>,</span>
+                        <span class="author-block">
+              <a href="https://jonbarron.info">Mingfu Yan</a><sup>1,2*</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="http://sofienbouaziz.com">Jiancheng Huang</a><sup>1,2</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="https://www.danbgoldman.com">Jianzhuang Liu</a><sup>1</sup>,
+            </span>
+                        <br/>
+                        <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~seitz/">Yifan Liu</a><sup>1</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Yafei Wen</a><sup>3</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Xiaoxin Chen</a><sup>3</sup>,
+            </span>
+                        <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com">Shifeng Chen</a><sup>1✝</sup>
+            </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences,</span>
+                        <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences,</span>
+                        <span class="author-block"><sup>3</sup>VIVO AI Lab</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                                          <span class="link-block">
+                                            <a class="external-link button is-normal is-rounded is-dark"
+                                               href="https://arxiv.org/pdf/2311.12631.pdf">
+                                              <span class="icon">
+                                                  <i class="fas fa-file-pdf"></i>
+                                              </span>
+                                              <span>Paper</span>
+                                            </a>
+                                          </span>
+                            <span class="link-block" disabled>
+                <a class="external-link button is-normal is-rounded is-dark"
+                   href="https://arxiv.org/abs/2311.12631">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <!-- Video Link. -->
+                            <!--              <span class="link-block">-->
+                            <!--                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"-->
+                            <!--                   class="external-link button is-normal is-rounded is-dark">-->
+                            <!--                  <span class="icon">-->
+                            <!--                      <i class="fab fa-youtube"></i>-->
+                            <!--                  </span>-->
+                            <!--                  <span>Video</span>-->
+                            <!--                </a>-->
+                            <!--              </span>-->
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                <a class="external-link button is-normal is-rounded is-dark"
+                   href="https://github.com/jiaxilv/GPT4Motion">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+                            <!-- Dataset Link. -->
+                            <!--              <span class="link-block">-->
+                            <!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
+                            <!--                   class="external-link button is-normal is-rounded is-dark">-->
+                            <!--                  <span class="icon">-->
+                            <!--                      <i class="far fa-images"></i>-->
+                            <!--                  </span>-->
+                            <!--                  <span>Data</span>-->
+                            <!--                  </a>-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="hero-body">-->
+<!--      <video id="teaser" autoplay muted loop playsinline height="100%">-->
+<!--        <source src="./static/videos/teaser.mp4"-->
+<!--                type="video/mp4">-->
+<!--      </video>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into-->
+<!--        free-viewpoint-->
+<!--        portraits.-->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="carousel results-carousel" id="results-carousel">
+                <div class="item item-basketball">
+                    <video autoplay controls height="100%" id="basketball" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A basketball fell out of the air.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="item item-basketball-camera">
+                    <video autoplay controls height="100%" id="basketball-camera" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A basketball is thrown towards the camera.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="item item-basketball-spins_out">
+                    <video autoplay controls height="100%" id="basketball-spins_out" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A basketball spins out of the air and falls.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-four-basketballs">
+                    <video autoplay controls height="100%" id="four-basketballs" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_Four basketballs spinning randomly in the air in free fall.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-T-shirt-light-wind">
+                    <video autoplay controls height="100%" id="T-shirt-light-wind" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A white T-shirt flutters in a light wind.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-T-shirt-heavy-wind">
+                    <video autoplay controls height="100%" id="T-shirt-fierce-wind" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A white T-shirt flutters in fierce winds.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-T-shirt-wind">
+                    <video autoplay controls height="100%" id="T-shirt-heavy-wind" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A white T-shirt flutters in the wind.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-flag-wind">
+                    <video autoplay controls height="100%" id="flag-wind" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A white flag flaps in the wind.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-flag-light-wind">
+                    <video autoplay controls height="100%" id="flag-light-wind" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A white flag flaps in a light wind.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-flag-fierce-wind">
+                    <video autoplay controls height="100%" id="flag-fierce-wind" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A white flag flaps in fierce winds.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-water">
+                    <video autoplay controls height="100%" id="water" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_A large amount of water flows into a white mug, top-down view.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-viscous-water">
+                    <video autoplay controls height="100%" id="viscous-water" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_Viscous water flows into a white mug, top-down view.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+                <div class="item item-very-viscous-water">
+                    <video autoplay controls height="100%" id="very-viscous-water" loop muted playsinline poster="">
+                        <source src="./static/24videos/1.0_1.0_Very viscous water flows into a white mug, top-down view.mp4"
+                                type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Recent advances in text-to-video generation have harnessed the power of diffusion models to
+                        create visually compelling content conditioned on text prompts. However, they usually encounter
+                        high computational costs and often struggle to produce videos with coherent physical motions. To
+                        tackle these issues, we propose GPT4Motion, a training-free framework that leverages the
+                        planning capability of large language models such as GPT, the physical simulation strength of
+                        Blender, and the excellent image generation ability of text-to-image diffusion models to enhance
+                        the quality of video synthesis. Specifically, GPT4Motion employs GPT-4 to generate a Blender
+                        script based on a user textual prompt, which commands Blender's built-in physics engine to craft
+                        fundamental scene components that encapsulate coherent physical motions across frames. Then
+                        these components are inputted into Stable Diffusion to generate a video aligned with the textual
+                        prompt.
+                        Experimental results on three basic physical motion scenarios, including rigid object drop and
+                        collision, cloth draping and swinging, and liquid flow, demonstrate that GPT4Motion can generate
+                        high-quality videos efficiently in maintaining motion coherency and entity consistency.
+                        GPT4Motion offers new insights in text-to-video research, enhancing its quality and broadening
+                        its horizon for future explorations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Abstract. -->
+
+        <!-- Paper video. -->
+        <!--    <div class="columns is-centered has-text-centered">-->
+        <!--      <div class="column is-four-fifths">-->
+        <!--        <h2 class="title is-3">Video</h2>-->
+        <!--        <div class="publication-video">-->
+        <!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
+        <!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--    </div>-->
+        <!--/ Paper video. -->
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Architecture</h2>
+                <img alt="Architecture" src="./static/images/architecture.png" width="100%"/>
+                <p>The architecture of our GPT4Motion. First, the user prompt is inserted into our designed prompt
+                    template. Then, the Python script generated by GPT-4 drives the Blender physics engine to simulate
+                    the corresponding motion, producing sequences of edge maps and depth maps. Finally, two ControlNets
+                    are employed to constrain the physical motion of video frames generated by Stable Diffusion, where a
+                    temporal consistency constraint is designed to enforce the coherence among frames.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--<section class="section" id="BibTeX">-->
+<!--    <div class="container is-max-desktop content">-->
+<!--        <h2 class="title">BibTeX</h2>-->
+<!--        <pre><code>@article{2023GPT4Motion,-->
+<!--  author    = {GaaHey Leoi and Yi Huang and Mingfu Yan and Jiancheng Huang and Jianzhuang Liu and Yifan Liu and Yafei Wen and Xiaoxin Chen and Shifeng Chen},-->
+<!--  title     = {GPT4Motion: Scripting Physical Motions in Text-to-Video Generation via Blender-Oriented GPT Planning},-->
+<!--}</code></pre>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <!--      <a class="icon-link"-->
+            <!--         href="./static/videos/nerfies_paper.pdf">-->
+            <!--        <i class="fas fa-file-pdf"></i>-->
+            <!--      </a>-->
+            <!--      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>-->
+            <!--        <i class="fab fa-github"></i>-->
+            <!--      </a>-->
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                        Thanks for thier excellent source code.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
