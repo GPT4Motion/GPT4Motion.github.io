@@ -21,11 +21,36 @@
     <link href="./static/css/index.css" rel="stylesheet">
     <link href="./static/images/icons8-basketball-96.png" rel="icon">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./static/js/fontawesome.all.min.js"></script>
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
+    <style>
+        .special-font {
+            font-family: 'Caveat', cursive;
+            font-size: 24px;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .video-item {
+            width: 18%;
+            margin: 5px;
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -37,22 +62,22 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
-    <div class="navbar-menu">
-        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    <!--    <div class="navbar-menu">-->
+    <!--        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">-->
 
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    Contact
-                </a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="mailto:lvjiaxi22@mails.ucas.ac.cn">
-                        GaaHey Leoi
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!--            <div class="navbar-item has-dropdown is-hoverable">-->
+    <!--                <a class="navbar-link">-->
+    <!--                    Contact-->
+    <!--                </a>-->
+    <!--                <div class="navbar-dropdown">-->
+    <!--                    <a class="navbar-item" href="mailto:lvjiaxi22@mails.ucas.ac.cn">-->
+    <!--                        GaaHey Leoi-->
+    <!--                    </a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
 
-    </div>
+    <!--    </div>-->
 </nav>
 
 
@@ -66,7 +91,7 @@
                         Blender-Oriented GPT Planning</h1>
                     <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="">GaaHey Leoi</a><sup>1,2*</sup>,</span>
+              <a href="">Jiaxi Lv</a><sup>1,2*,<i class="fas fa-envelope"></i></sup>,</span>
                         <span class="author-block">
               <a href="">Yi Huang</a><sup>1,2*</sup>,</span>
                         <span class="author-block">
@@ -98,7 +123,11 @@
                         <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences,</span>
                         <span class="author-block"><sup>3</sup>VIVO AI Lab</span>
                     </div>
+                    <div
+                            class="is-size-5 publication-authors">
+                        <p><i class="fas fa-envelope"></i> : jx.lv1@siat.ac.cn</p>
 
+                    </div>
                     <div class="column has-text-centered">
                         <div class="publication-links">
                                           <span class="link-block">
@@ -140,15 +169,15 @@
                   <span>Code</span>
                   </a>
               </span>
-                            <!-- Dataset Link. -->
-                            <!--              <span class="link-block">-->
-                            <!--                <a href="https://github.com/google/nerfies/releases/tag/0.1"-->
-                            <!--                   class="external-link button is-normal is-rounded is-dark">-->
-                            <!--                  <span class="icon">-->
-                            <!--                      <i class="far fa-images"></i>-->
-                            <!--                  </span>-->
-                            <!--                  <span>Data</span>-->
-                            <!--                  </a>-->
+
+                            <span class="link-block">
+                                            <a href="https://www.jiqizhixin.com/articles/2023-11-28-2"
+                                               class="external-link button is-normal is-rounded is-dark">
+                                              <span class="icon">
+                                                  <i class="far fa-images"></i>
+                                              </span>
+                                              <span>机器之心</span>
+                                              </a>
                         </div>
 
                     </div>
@@ -265,23 +294,70 @@
 <!--</section>-->
 
 <section class="section">
-    <div class="container is-max-desktop">
-        <div class="columns is-centered">
+    <div class="container is-max-desktop is-centered has-text-centered">
+        <h2 class="title">Comparisons with Baselines</h2>
+        <!--        <img src="static/images/prompt.png">-->
+        <p class="special-font">
+            A basketball free falls in the air
+        </p>
+        <div class="video-container">
+            <div class="video-item">
+                <video src="static/ablation_experiment/basketball1.mp4" controls loop=""
+                       muted="" playsinline="" autoplay></video>
+                <p>GPT4Motion(Ours)</p>
 
+            </div>
+            <div class="video-item">
+                <video src="static/ablation_experiment/animatediff.mp4" controls loop=""
+                       muted="" playsinline="" autoplay></video>
+                <p>AnimateDiff</p>
+
+            </div>
+            <div class="video-item">
+                <video src="static/ablation_experiment/Modelscope.mp4" controls loop=""
+                       muted="" playsinline="" autoplay></video>
+                <p>ModelScope</p>
+
+            </div>
+            <div class="video-item">
+                <video src="static/ablation_experiment/tv20.mp4" controls loop=""
+                       muted="" playsinline="" autoplay></video>
+                <p>Text2Video-Zero</p>
+
+            </div>
+            <div class="video-item">
+                <video src="static/ablation_experiment/DirecT2V.mp4" controls loop=""
+                       muted="" playsinline="" autoplay></video>
+                <p>DirecT2V</p>
+            </div>
+
+
+        </div>
+        <p>
+            Comparison of the video results generated by different text-to-video models with the prompt “A basketball
+            free falls in the air”.
+        </p>
+        <br/>
+
+        <h2 class="title">More Results</h2>
+        <p>All videos are 1080p, 24 fps.</p>
+        <br/>
+        <div class="columns is-centered">
             <!-- Visual Effects. -->
             <div class="column">
                 <div class="content">
-                    <h2 class="title is-3">Basketball</h2>
-                    <!--          <p>-->
-                    <!--            A basketball free falls in the air-->
-                    <!--          </p>-->
+                    <h3 class="title">Basketball (Rigid Objects)</h3>
+                    <p class="special-font">
+                        A basketball spins out of the air and falls.
+                    </p>
                     <!--          <video id="video-basketball" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">-->
                     <!--            <source src="./static/24videos/1.0_1.0_A basketball fell out of the air.mp4"-->
                     <!--                                type="video/mp4">-->
                     <!--          </video>-->
-                    <p>
-                        A basketball spins out of the air and falls.
-                    </p>
+                    <!--                    <p>-->
+                    <!--                        A basketball spins out of the air and falls.-->
+                    <!--                    </p>-->
+                    <!--                    <img src="static/images/1.png">-->
                     <video autoplay="" controls="" height="100%" id="A basketball spins out of the air and falls"
                            loop=""
                            muted="" playsinline="">
@@ -289,7 +365,7 @@
                                 type="video/mp4">
                     </video>
                     <hr>
-                    <p>
+                    <p class="special-font">
                         Four basketballs spin randomly in the air and fall.
                     </p>
                     <video autoplay="" controls="" height="100%" id="Four basketballs spin randomly in the air and fall"
@@ -298,7 +374,7 @@
                                 type="video/mp4">
                     </video>
                     <hr>
-                    <p>
+                    <p class="special-font">
                         A basketball is thrown towards the camera.
                     </p>
                     <video autoplay="" controls="" height="100%" id="A basketball is thrown towards the camera" loop=""
@@ -307,8 +383,8 @@
                                 type="video/mp4">
                     </video>
 
-                    <h2 class="title is-3">Water</h2>
-                    <p>
+                    <h3 class="title">Water (Liquid)</h3>
+                    <p class="special-font">
                         Water flows into a white mug on a table.
                     </p>
                     <video autoplay="" controls="" height="100%" id="Water flows into a white mug on a table" loop=""
@@ -317,7 +393,7 @@
                                 type="video/mp4">
                     </video>
                     <hr>
-                    <p>
+                    <p class="special-font">
                         Viscous water flows into a white mug on a table.
                     </p>
                     <video autoplay="" controls="" height="100%" id="Viscous water flows into a white mug on a table"
@@ -326,8 +402,8 @@
                                 type="video/mp4">
                     </video>
                     <hr>
-                    <p>
-                        Very viscous water flows into a white mug on a table
+                    <p class="special-font">
+                        Very viscous water flows into a white mug on a table.
                     </p>
                     <video autoplay="" controls="" height="100%"
                            id="Very viscous water flows into a white mug on a table" loop=""
@@ -343,9 +419,9 @@
             <div class="column">
                 <div class="columns is-centered">
                     <div class="column content">
-                        <h2 class="title is-3">T-shirt</h2>
+                        <h3 class="title">T-shirt (Irregular Cloth Object)</h3>
 
-                        <p>
+                        <p class="special-font">
                             A white T-shirt flutters in light wind.
                         </p>
                         <video autoplay="" controls="" height="100%" id="A white T-shirt flutters in light wind" loop=""
@@ -354,7 +430,7 @@
                                     type="video/mp4">
                         </video>
                         <hr>
-                        <p>
+                        <p class="special-font">
                             A white T-shirt flutters in the wind.
                         </p>
                         <video autoplay="" controls="" height="100%" id="A white T-shirt flutters in the wind"
@@ -363,7 +439,7 @@
                                     type="video/mp4">
                         </video>
                         <hr>
-                        <p>
+                        <p class="special-font">
                             A white T-shirt flutters in strong wind.
                         </p>
                         <video autoplay="" controls="" height="100%" id="A white T-shirt flutters in strong wind"
@@ -372,9 +448,9 @@
                             <source src="./static/24videos/1.0_1.0_A white T-shirt flutters in fierce winds.mp4"
                                     type="video/mp4">
                         </video>
-                        <h2 class="title is-3">Flag</h2>
+                        <h3 class="title">Flag (Cloth Object)</h3>
 
-                        <p>
+                        <p class="special-font">
                             A white flag flaps in light wind.
                         </p>
                         <video autoplay="" controls="" height="100%" id="A white flag flaps in light wind" loop=""
@@ -383,7 +459,7 @@
                                     type="video/mp4">
                         </video>
                         <hr>
-                        <p>
+                        <p class="special-font">
                             A white flag flaps in the wind.
                         </p>
                         <video autoplay="" controls="" height="100%" id="A white flag flaps in the wind"
@@ -392,7 +468,7 @@
                                     type="video/mp4">
                         </video>
                         <hr>
-                        <p>
+                        <p class="special-font">
                             A white flag flaps in strong wind.
                         </p>
                         <video autoplay="" controls="" height="100%" id="A white flag flaps in strong wind" loop=""
@@ -478,17 +554,15 @@
 </section>
 
 
-<section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-        <h2 class="title">BibTeX</h2>
-        <pre><code>@article{lv2023gpt4motion,
-  title={GPT4Motion: Scripting Physical Motions in Text-to-Video Generation via Blender-Oriented GPT Planning},
-  author={Lv, Jiaxi and Huang, Yi and Yan, Mingfu and Huang, Jiancheng and Liu, Jianzhuang and Liu, Yifan and Wen, Yafei and Chen, Xiaoxin and Chen, Shifeng},
-  journal={arXiv preprint arXiv:2311.12631},
-  year={2023}
-}</code></pre>
-    </div>
-</section>
+<!--<section class="section" id="BibTeX">-->
+<!--    <div class="container is-max-desktop content">-->
+<!--        <h2 class="title">BibTeX</h2>-->
+<!--        <pre><code>@article{2023GPT4Motion,-->
+<!--  author    = {GaaHey Leoi and Yi Huang and Mingfu Yan and Jiancheng Huang and Jianzhuang Liu and Yifan Liu and Yafei Wen and Xiaoxin Chen and Shifeng Chen},-->
+<!--  title     = {GPT4Motion: Scripting Physical Motions in Text-to-Video Generation via Blender-Oriented GPT Planning},-->
+<!--}</code></pre>-->
+<!--    </div>-->
+<!--</section>-->
 
 
 <footer class="footer">
